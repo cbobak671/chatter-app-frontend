@@ -4,6 +4,7 @@ import UserAvatar from "./UserAvatar";
 
 const UserProfile = ({ user, onClose }) => {
   return (
+
     <Link
       to={"/messages/users" + user?._id}
       onClick={onClose}
@@ -21,6 +22,7 @@ const UserProfile = ({ user, onClose }) => {
         {user?.username}
       </div>
     </Link>
+
   );
 };
 

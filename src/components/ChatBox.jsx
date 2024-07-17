@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { socket } from "../socket";
-import * as chatService from "../../services/chatService";
+import * as chatService from "../../services/messageService";
 import useChats from "../zustand/useChatLogs";
 
 function ChatBox({ user }) {
@@ -44,7 +44,7 @@ function ChatBox({ user }) {
       senderId: [{ username: user.username }],
       message: textInputData.message,
     });
-
+    console.log(textInputData);
     chatService.create(textInputData);
     setTextInputData({ senderId: [{ username: user.username }], message: "" });
   }
@@ -53,7 +53,7 @@ function ChatBox({ user }) {
     usermessageObject,
     userMessageObjectIndex
   ) {
-  console.log(usermessageObject._id)
+    console.log(usermessageObject._id);
     await chatService.deleteMessage(usermessageObject._id);
 
     const filteredLog = messageLog.filter((usermessageObject, index) => {
@@ -80,7 +80,11 @@ function ChatBox({ user }) {
           >
             <div className="border-2 border-black rounded-xl pl-2 pr-2 pb-2 m-1 ">
               <div key={index + 1} className="font-semibold pt-1 ">
-                {`${userMessageObject.senderId[0]?.username}`}{" "}
+                {`${
+                  userMessageObject.senderId[0]?.username
+                    ? userMessageObject.senderId[0]?.username
+                    : user.username
+                }`}{" "}
                 <button
                   onClick={function () {
                     handleDeleteButtonSubmit(userMessageObject, index);

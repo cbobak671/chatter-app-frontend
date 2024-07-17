@@ -37,7 +37,7 @@ const SearchUser = ({ onClose }) => {
     handleSearchUser();
   }, [search]);
 
-  console.log("searchUser", searchUser);
+ 
 
   return (
     <div className="fixed top-20 bottom-0 left-0 right-0 text-slate-500 bg-slate-700 bg-opacity-30 p-3 overflow-auto scroll-auto">
