@@ -27,6 +27,10 @@ function App() {
     console.log(loginText);
   }
 
+  // function handleNewChat = async ()
+
+  // }
+
 
   return (
     <>

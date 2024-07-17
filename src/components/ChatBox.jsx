@@ -66,7 +66,7 @@ if(userId) getUser(userId)
   async function handleButtonSubmit(e) {
     e.preventDefault();
 
-    const messageData = await chatService.messageIndex();
+    const messageData = await chatService.chatLogIndex();
 
     setMessageLog([textInputData, ...messageData.reverse()]);
 
