@@ -92,13 +92,14 @@ function ChatBox({ user }) {
   }
 
   async function handleDeleteButtonSubmit(
-    usermessageObject,
+    userMessageObject,
     userMessageObjectIndex
   ) {
-    console.log(usermessageObject._id);
-    await messageService.deleteMessage(usermessageObject._id);
+    console.log(userMessageObject);
+    console.log(userMessageObject._id);
+    await messageService.deleteMessage(userMessageObject._id);
 
-    const filteredLog = messageLog.filter((usermessageObject, index) => {
+    const filteredLog = messageLog.filter((userMessageObject, index) => {
       return index != userMessageObjectIndex;
     });
 
