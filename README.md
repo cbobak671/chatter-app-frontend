@@ -16,6 +16,7 @@ Chatter gives users a new, seamless way to stay connected in realtime. Use Chatt
 
 ## Technologies Used
 
+- Socket.io
 - React
 - Javascript
 - HTML
