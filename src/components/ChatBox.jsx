@@ -24,8 +24,6 @@ function ChatBox({ user }) {
   const { foundUserId } = useParams();
   const { chatId } = useParams();
 
-
-
   useEffect(() => {
     async function getUser(foundUserId) {
       const foundUserObject = await chatService.getUser(foundUserId);
@@ -36,8 +34,6 @@ function ChatBox({ user }) {
       const chatMessages = await chatService.getChatMessages(newChatId);
       setDatabaseMessageLog(chatMessages.messages);
     };
-
-
 
     const handleRoomChange = function (newRoom) {
       if (currentRoom) {
@@ -54,7 +50,6 @@ function ChatBox({ user }) {
   }, []);
 
   const messageListener = (messagecontent) => {
-   
     setMessageLog([messagecontent, ...messageLog]);
   };
 
@@ -65,7 +60,6 @@ function ChatBox({ user }) {
 
   useEffect(() => {
     const createChatRouter = async function () {
-     
       setChatParticipants([user._id, selectedUser.user._id]);
     };
     createChatRouter();
@@ -80,9 +74,9 @@ function ChatBox({ user }) {
 
   async function handleButtonSubmit(e) {
     e.preventDefault();
-    const newChat = await chatService.create(chatParticipants); //move to list of users, includes logic that checks for already existing chat between participants
+    const newChat = await chatService.create(chatParticipants);
     setChatLogId(newChat._id);
-    setMessageLog([textInputData, ...messageLog]); 
+    setMessageLog([textInputData, ...messageLog]);
 
     socket.emit(
       "message",
@@ -133,20 +127,9 @@ function ChatBox({ user }) {
 
       <ul className="list-none flex flex-col items-center overflow-auto">
         {databaseMessageLog?.map((dbMessageObject, index) => (
-          <div
-          // className={`w-5/6 flex ${
-          //   userMessageObject.senderId[0]?.username === user.username
-          //     ? `justify-end`
-          //     : `justify-start`
-          // }`}
-          >
+          <div>
             <div className="border-2 border-slate-500 rounded-xl pl-2 pr-2 pb-2 m-1 ">
               <div key={index + 1} className="font-semibold pt-1 ">
-                {/* {`${
-                  userMessageObject.senderId[0]?.username
-                    ? userMessageObject.senderId[0]?.username
-                    : user.username
-                }`}{" "} */}
                 <button
                   onClick={function () {
                     handleDeleteButtonSubmit(dbMessageObject, index);
