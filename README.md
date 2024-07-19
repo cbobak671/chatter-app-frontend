@@ -37,6 +37,7 @@ Chatter gives users a new, seamless way to stay connected in realtime. Use Chatt
 
 Quickly get started with Chatter by signing up for an account. Follow the app link below to started.
 
+- [Netlify app link](https://chatchatter.netlify.app)
 - [Heroku BE App link](https://chatter-application-f0e5633242b6.herokuapp.com/)
 - [Github link - FrontEnd](https://github.com/cbobak671/chatter-app-frontend)
 - [Github link - BackEnd](https://github.com/cbobak671/chatter-app-backend)
