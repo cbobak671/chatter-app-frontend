@@ -135,7 +135,7 @@ setDatabaseMessageLog(chatMessages.messages)
           <div>
             <UserAvatar width={20} height={2} />
             <div>
-              <h1 className="text-slate-600 text-xl ml-5 font-semibold line-clamp-1">
+              <h1 className="text-slate-800 text-xl ml-5 font-semibold line-clamp-1">
                 {selectedUser.user?.username}
               </h1>
             </div>
